@@ -14,4 +14,8 @@ This repository contains my Azure hands-on labs as part of my AZ-104 preparation
 ## 🚀 Status
 Ongoing cloud learning journey (AZ-104)
 
+## 📸 Screenshots
 
+### Virtual Network
+
+![VNet](screenshots/vnet-created.png)
