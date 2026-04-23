@@ -5,7 +5,7 @@ This repository contains my Azure hands-on labs as part of my AZ-104 preparation
 ## 📦 Projects
 - Resource Group deployment (PowerShell)
 - Virtual Network creation (PowerShell)
-
+- Add subnet to existing Virtual Network (PowerShell)
 ## 🛠️ Skills
 - Azure PowerShell
 - Cloud networking fundamentals
@@ -13,9 +13,3 @@ This repository contains my Azure hands-on labs as part of my AZ-104 preparation
 
 ## 🚀 Status
 Ongoing cloud learning journey (AZ-104)
-
-## 📸 Screenshots
-
-### Virtual Network
-
-![VNet](screenshots/vnet-created.png)
