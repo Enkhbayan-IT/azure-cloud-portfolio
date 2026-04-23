@@ -17,4 +17,4 @@ Ongoing cloud learning journey (AZ-104)
 ## 📸 Screenshots
 
 ### Virtual Network
-![VNet](screenshots/vnet-created.png)
+![vnet](screenshots/Vnet-created.png)
