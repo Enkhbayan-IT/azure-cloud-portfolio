@@ -1,10 +1,9 @@
-
 # Azure Network Interface (NIC) Lab
 
 ## Objective
-This lab demonstrates how to create an Azure Network Interface (NIC) using PowerShell.
+This lab demonstrates how to create an Azure Network Interface (NIC) using PowerShell and prepare it for external connectivity.
 
-A NIC is required before creating a Virtual Machine (VM), because the VM needs a primary network interface for network connectivity.
+A NIC is required before creating a Virtual Machine (VM), because the VM needs a primary network interface for network communication.
 
 ---
 
@@ -14,18 +13,22 @@ A NIC is required before creating a Virtual Machine (VM), because the VM needs a
 - **Virtual Network:** `vnet-swc-dev-01`
 - **Subnet:** `snet-swc-dev-web-01`
 - **Network Interface:** `nic-swc-dev-web-01`
+- **Public IP Address:** `pip-swc-dev-web-01`
 
 ---
 
 ## Summary
 In this lab, I created an Azure Network Interface and connected it to an existing subnet inside a Virtual Network.
 
-This NIC will be used as the primary network interface for a future Virtual Machine deployment.
+I also created a Standard SKU Public IP address with Static allocation and associated it with the NIC.
+
+This prepares the network interface for a future Virtual Machine deployment with external connectivity.
 
 ---
 
 ## What I Learned
 - A Virtual Machine requires a primary NIC before deployment
 - A NIC is connected to a subnet inside a VNet
+- A Public IP address is attached to the NIC, not directly to the VM
 - Azure resources often depend on each other and must be created in the correct order
 - PowerShell can be used to automate infrastructure deployment
