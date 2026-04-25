@@ -19,7 +19,7 @@ $Nic = Get-AzNetworkInterface -Name $NICName `
 ## Attach Public IP to NIC IP configuration
 Set-AzNetworkInterfaceIpConfig -Name $IpConfigurationName `
 -NetworkInterface $Nic `
--PublicIpAddress $Pip | Out-Null
+-PublicIpAddress $Pip
 
 # Save NIC changes to Azure
 Set-AzNetworkInterface -NetworkInterface $Nic
