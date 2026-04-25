@@ -1,42 +1,35 @@
-# ☁️ Azure Cloud Portfolio
+# Azure Infrastructure Labs
 
-This repository contains my hands-on Azure lab projects built while learning cloud engineering, Azure administration, and infrastructure automation.
+This folder contains hands-on Azure infrastructure labs built with Azure PowerShell.
 
-The goal of this portfolio is to document practical Azure experience using:
-- Azure Portal
-- Azure PowerShell
-- Git & GitHub
+Each lab focuses on a core Azure infrastructure component and is organized step by step to reflect real-world deployment order and resource dependencies.
 
 ---
 
-## 🛠️ Skills Demonstrated
-- Azure Resource Management
-- Azure Networking (VNet / Subnet)
-- Virtual Machine deployment
-- Azure Storage basics
-- PowerShell automation with Az module
-- GitHub project documentation
-- Basic Infrastructure as Code practices
+## 📂 Included Labs
+- **Resource Group**
+- **Virtual Network (VNet)**
+- **Subnet**
+- **Network Interface (NIC)**
+- **Public IP Address**
+- **Network Security Group (NSG)**
 
 ---
 
-## 📂 Repository Structure
+## 🛠️ Skills Practiced
+- Azure resource deployment with PowerShell
+- Azure networking fundamentals
+- Resource dependency management
+- Infrastructure configuration and validation
+- Basic infrastructure automation
+- Technical documentation with GitHub
 
-```text
-azure-cloud-portfolio/
-├── infra/
-│   ├── resource-group/
-│   │   └── create-rg.ps1
-│   ├── vnet/
-│   │   ├── create-vnet.ps1
-│   │   └── subnet/
-│   │       └── create-subnet.ps1
-│   ├── vm/
-│   └── storage/
-│
-├── screenshots/
-│
-├── docs/
-│   └── architecture.md
-│
-└── README.md
+---
+
+## 📌 Current Focus
+These labs are designed to build a strong foundation in:
+- Azure administration (AZ-104)
+- Azure networking and security
+- PowerShell-based deployment workflows
+- Practical cloud engineering skills
+
