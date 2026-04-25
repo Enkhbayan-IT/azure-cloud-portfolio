@@ -18,15 +18,15 @@ The NSG is used to control inbound traffic to resources in the subnet.
 ---
 
 ## Security Rules Configured
-- **Allow HTTP (TCP 80)** from the Internet to `10.0.0.4`
-- **Allow SSH (TCP 22)** from the Internet to `10.0.0.4`
+- **Allow HTTP (TCP 80)** from the Internet to a host in the `10.0.1.0/24` subnet
+- **Allow SSH (TCP 22)** from the Internet to a host in the `10.0.1.0/24` subnet
 
 ---
 
 ## Summary
 In this lab, I created a Network Security Group with custom inbound rules for HTTP and SSH traffic.
 
-I then associated the NSG with an existing subnet inside the Virtual Network, allowing controlled external access to resources in that subnet.
+I then associated the NSG with the existing subnet `10.0.1.0/24` inside the Virtual Network, allowing controlled external access to resources in that subnet.
 
 ---
 
@@ -35,3 +35,5 @@ I then associated the NSG with an existing subnet inside the Virtual Network, al
 - NSG rules can allow or deny traffic based on protocol, port, source, and destination
 - NSGs can be attached to either a subnet or a network interface
 - Changes to subnet configuration must be saved back to the Virtual Network object
+
+
