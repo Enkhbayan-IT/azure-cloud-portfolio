@@ -1,39 +1,40 @@
-# Azure Network Security Group (NSG) Lab
+# Azure PowerShell - Create NSG and Associate It with a Subnet
 
-## Objective
-This lab demonstrates how to create an Azure Network Security Group (NSG) using PowerShell, define inbound security rules, and associate the NSG with an existing subnet.
+This project demonstrates how to create an **Azure Network Security Group (NSG)** with inbound security rules and associate it with an existing **Subnet** using **Azure PowerShell**.
 
-The NSG is used to control inbound traffic to resources in the subnet.
-
----
-
-## Resources Used
-- **Resource Group:** `rg-az-swc-dev`
-- **Location:** `swedencentral`
-- **Virtual Network:** `vnet-swc-dev-01`
-- **Subnet:** `snet-swc-dev-web-01`
-- **Subnet Address Prefix:** `10.0.1.0/24`
-- **Network Security Group:** `nsg-swc-dev-web-01`
+This lab is part of an Azure networking and infrastructure automation workflow and focuses on subnet-level traffic control.
 
 ---
 
-## Security Rules Configured
-- **Allow HTTP (TCP 80)** from the Internet to a host in the `10.0.1.0/24` subnet
-- **Allow SSH (TCP 22)** from the Internet to a host in the `10.0.1.0/24` subnet
+## 📌 Overview
+
+This lab performs the following tasks:
+
+1. Creates an **NSG**
+2. Adds inbound security rules for:
+   - **SSH (port 22)**
+   - **HTTP (port 80)**
+3. Retrieves the existing **Virtual Network**
+4. Associates the NSG with an existing **Subnet**
+5. Pushes the updated VNet configuration to Azure
+
+### Azure Resources Used
+
+- **Resource Group:** `rg-az-neu-dev`
+- **Location:** `northeurope`
+- **Virtual Network:** `vnet-neu-dev-01`
+- **Subnet:** `snet-neu-dev-web-01`
+- **Subnet Address Prefix:** `10.0.0.0/24`
+- **Network Security Group:** `nsg-neu-dev-web-01`
 
 ---
 
-## Summary
-In this lab, I created a Network Security Group with custom inbound rules for HTTP and SSH traffic.
+## 🛠️ Technologies Used
 
-I then associated the NSG with the existing subnet `10.0.1.0/24` inside the Virtual Network, allowing controlled external access to resources in that subnet.
+- Azure PowerShell (`Az` module)
+- PowerShell
+- Microsoft Azure
 
----
 
-## What I Learned
-- An NSG controls inbound and outbound traffic in Azure
-- NSG rules can allow or deny traffic based on protocol, port, source, and destination
-- NSGs can be attached to either a subnet or a network interface
-- Changes to subnet configuration must be saved back to the Virtual Network object
 
 
