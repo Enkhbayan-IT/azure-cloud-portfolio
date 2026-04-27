@@ -1,34 +1,36 @@
-# Azure Network Interface (NIC) Lab
+# Azure PowerShell - Create NIC and Attach Public IP
 
-## Objective
-This lab demonstrates how to create an Azure Network Interface (NIC) using PowerShell and prepare it for external connectivity.
+This project demonstrates how to create an **Azure Network Interface (NIC)** inside an existing subnet and then attach a **Public IP Address** to that NIC using **Azure PowerShell**.
 
-A NIC is required before creating a Virtual Machine (VM), because the VM needs a primary network interface for network communication.
-
----
-
-## Resources Used
-- **Resource Group:** `rg-az-swc-dev`
-- **Location:** `swedencentral`
-- **Virtual Network:** `vnet-swc-dev-01`
-- **Subnet:** `snet-swc-dev-web-01`
-- **Network Interface:** `nic-swc-dev-web-01`
-- **Public IP Address:** `pip-swc-dev-web-01`
+This lab is part of a foundational Azure networking and infrastructure automation workflow.
 
 ---
 
-## Summary
-In this lab, I created an Azure Network Interface and connected it to an existing subnet inside a Virtual Network.
+## 📌 Overview
 
-I also created a Standard SKU Public IP address with Static allocation and associated it with the NIC.
+This lab includes two core tasks:
 
-This prepares the network interface for a future Virtual Machine deployment with external connectivity.
+1. **Create a Network Interface (NIC)** in an existing subnet
+2. **Create a Public IP Address and attach it to the NIC**
+
+### Azure Resources Used
+
+- **Resource Group:** `rg-az-neu-dev`
+- **Location:** `northeurope`
+- **Virtual Network:** `vnet-neu-dev-01`
+- **Subnet:** `snet-neu-dev-web-01`
+- **Network Interface:** `nic-neu-dev-web-01`
+- **IP Configuration Name:** `ipconfig-web-01`
+- **Public IP:** `pip-neu-dev-web-01`
 
 ---
 
-## What I Learned
-- A Virtual Machine requires a primary NIC before deployment
-- A NIC is connected to a subnet inside a VNet
-- A Public IP address is attached to the NIC, not directly to the VM
-- Azure resources often depend on each other and must be created in the correct order
-- PowerShell can be used to automate infrastructure deployment
+## 🛠️ Technologies Used
+
+- Azure PowerShell (`Az` module)
+- PowerShell
+- Microsoft Azure
+│
+├── 04-nic.ps1
+├── 05-public-ip.ps1
+└── README.md
