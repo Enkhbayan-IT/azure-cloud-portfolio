@@ -1,25 +1,32 @@
-#Variables
-$ResourceGroupName   ="rg-az-swc-dev"
-$Location            ="swedencentral"
-$PublicIpName        ="pip-swc-dev-web-01"
-$NICName             ="nic-swc-dev-web-01"
-$IpConfigurationName ="ipconfig-web-01"
+# Variables
+$ResourceGroupName   = "rg-az-neu-dev"
+$Location            = "northeurope"
+$PublicIpName        = "pip-neu-dev-web-01"
+$NICName             = "nic-neu-dev-web-01"
+$IpConfigurationName = "ipconfig-web-01"
 
-# Create Public IP address
-$Pip = New-AzPublicIpAddress -Name $PublicIpName `
--ResourceGroupName $ResourceGroupName `
--Location $Location `
--Sku Standard `
--AllocationMethod Static
+# Create new Public IP
+$PIP = New-AzPublicIpAddress `
+    -Name $PublicIpName `
+    -ResourceGroupName $ResourceGroupName `
+    -Location $Location `
+    -Sku Standard `
+    -AllocationMethod Static
 
-# Get existing NIC
-$Nic = Get-AzNetworkInterface -Name $NICName `
--ResourceGroupName $ResourceGroupName
+# Get NIC
+$NIC = Get-AzNetworkInterface `
+    -Name $NICName `
+    -ResourceGroupName $ResourceGroupName
 
-## Attach Public IP to NIC IP configuration
-Set-AzNetworkInterfaceIpConfig -Name $IpConfigurationName `
--NetworkInterface $Nic `
--PublicIpAddress $Pip
+# Attach Public IP to NIC IP config
+$NIC | Set-AzNetworkInterfaceIpConfig `
+    -Name $IpConfigurationName `
+    -PublicIpAddress $PIP | Out-Null
 
-# Save NIC changes to Azure
-Set-AzNetworkInterface -NetworkInterface $Nic
+# Save NIC changes
+$NIC | Set-AzNetworkInterface
+
+# Verify
+Get-AzNetworkInterface `
+    -Name $NICName `
+    -ResourceGroupName $ResourceGroupName
