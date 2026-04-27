@@ -1,9 +1,9 @@
-#Variables
-$ResourceGroupName  ="rg-az-swc-dev"
-$Location           ="swedencentral"
-$NICName            ="nic-swc-dev-web-01"
-$VNetName           ="vnet-swc-dev-01"
-$SubnetName          ="snet-swc-dev-web-01"
+# Variables
+$ResourceGroupName ="rg-az-neu-dev"
+$Location          ="northeurope"
+$NICName            ="nic-neu-dev-web-01"
+$VNetName           ="vnet-neu-dev-01"
+$SubnetName         ="snet-neu-dev-web-01"
 
 # Get existing Virtual Network object
 $VNet = Get-AzVirtualNetwork `
