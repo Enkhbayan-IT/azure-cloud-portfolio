@@ -1,9 +1,9 @@
 # Variables
-$ResourceGroupName = "rg-az-swc-dev"
-$Location          = "swedencentral"
-$NSGName           = "nsg-swc-dev-web-01"
-$VNetName          = "vnet-swc-dev-01"
-$SubnetName        = "snet-swc-dev-web-01"
+$ResourceGroupName = "rg-az-neu-dev"
+$Location          = "northeurope"
+$NSGName           = "nsg-neu-dev-web-01"
+$VNetName          = "vnet-neu-dev-01"
+$SubnetName        = "snet-neu-dev-web-01"
 
 # Create inbound rule to allow HTTP traffic from the Internet to private IP 10.0.0.4 on port 80
 $AllowHttp = New-AzNetworkSecurityRuleConfig -Name "in-allow-http-from-internet-to-10.0.0.4" `
@@ -42,7 +42,7 @@ $VNet = Get-AzVirtualNetwork `
 # AddressPrefix must match the current subnet address range
 Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $VNet `
 -Name $SubnetName `
--AddressPrefix "10.0.1.0/24" `
+-AddressPrefix "10.0.0.0/24" `
 -NetworkSecurityGroup $Nsg
 
 # Save the updated VNet configuration to Azure
