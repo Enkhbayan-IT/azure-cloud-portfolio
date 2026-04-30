@@ -1,35 +1,67 @@
-# Azure Infrastructure Labs
+# Azure Cloud Portfolio
 
-This folder contains hands-on Azure infrastructure labs built with Azure PowerShell.
+Hands-on Azure infrastructure portfolio focused on cloud administration, infrastructure deployment, and automation.
 
-Each lab focuses on a core Azure infrastructure component and is organized step by step to reflect real-world deployment order and resource dependencies.
+This repository documents practical Azure labs using PowerShell, Azure CLI, and ARM templates. The goal is to build job-ready skills for Azure administration, cloud infrastructure, and future DevOps engineering work.
 
----
+## Repository Structure
 
-## 📂 Included Labs
-- **Resource Group**
-- **Virtual Network (VNet)**
-- **Subnet**
-- **Network Interface (NIC)**
-- **Public IP Address**
-- **Network Security Group (NSG)**
+| Folder | Description |
+|---|---|
+| `infra-powershell/` | Azure infrastructure labs using Azure PowerShell |
+| `infra-azure-cli/` | Azure infrastructure deployment using Azure CLI |
+| `infra-arm-templates/` | Declarative infrastructure deployment using ARM templates |
 
----
+## Included Lab Areas
 
-## 🛠️ Skills Practiced
-- Azure resource deployment with PowerShell
+- Resource Groups
+- Virtual Networks
+- Subnets
+- Network Security Groups
+- Public IP Addresses
+- Network Interfaces
+- Virtual Machines
+- Storage Accounts
+- ARM template deployments
+- Azure CLI deployment workflows
+
+## Skills Practiced
+
+- Azure resource deployment
+- Azure PowerShell scripting
+- Azure CLI command-line administration
+- ARM template basics
+- Infrastructure as Code fundamentals
 - Azure networking fundamentals
 - Resource dependency management
-- Infrastructure configuration and validation
-- Basic infrastructure automation
-- Technical documentation with GitHub
+- Git and GitHub workflow
+- Technical documentation
 
----
+## Current Focus
 
-## 📌 Current Focus
-These labs are designed to build a strong foundation in:
-- Azure administration (AZ-104)
-- Azure networking and security
-- PowerShell-based deployment workflows
-- Practical cloud engineering skills
+I am currently building practical cloud engineering skills through:
 
+- Azure administration fundamentals
+- PowerShell-based infrastructure automation
+- Azure CLI deployment workflows
+- ARM template infrastructure deployment
+- Networking and cloud troubleshooting
+- Portfolio-based learning for Cloud / DevOps roles
+
+## Career Goal
+
+My goal is to become a Cloud / DevOps Engineer with strong foundations in Azure infrastructure, automation, networking, and reliable system operations.
+
+## Tools Used
+
+- Microsoft Azure
+- Azure PowerShell
+- Azure CLI
+- ARM Templates
+- Visual Studio Code
+- Git & GitHub
+- Windows PowerShell
+
+## Notes
+
+This repository is part of my learning journey and cloud engineering portfolio. Each folder is organized to show practical progress from basic Azure deployment toward infrastructure automation and Infrastructure as Code.
