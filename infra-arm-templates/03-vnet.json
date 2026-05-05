@@ -23,13 +23,19 @@
                     {
                         "name": "snet-neu-dev-web-01",
                         "properties": {
-                            "addressPrefix": "10.0.0.0/24"
+                            "addressPrefix": "10.0.0.0/24",
+                            "networkSecurityGroup":{
+                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups','nsg-neu-dev-web-01')]"
+                            }
                              }
                     },
                     {
                         "name": "snet-neu-dev-web-02",
                         "properties": {
-                            "addressPrefix": "10.0.1.0/24"
+                            "addressPrefix": "10.0.1.0/24",
+                            "networkSecurityGroup":{
+                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups','nsg-neu-dev-web-01')]"
+                            }
                             }
                         }
                 ]
