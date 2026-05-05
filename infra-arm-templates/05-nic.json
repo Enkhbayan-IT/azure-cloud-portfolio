@@ -16,12 +16,9 @@
                 {
                     "name": "ipconfig-web-01",
                     "properties": {
-                        "privateIPAllocationMethod": "Dynamic",
+                        "privateIPAllocationMethod": "Static",
                         "subnet": {
-                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'vnet-neu-dev-01', 'snet-neu-dev-web-01')]"
-                        },
-                         "publicIPAddress":{
-                            "id":"[resourceId('Microsoft.Network/publicIPAddresses','pip-neu-dev-web-01')]"
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'virtualNetwork1', 'subnet1')]"
                         }
                     }
                 }
