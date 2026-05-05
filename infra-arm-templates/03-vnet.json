@@ -12,7 +12,7 @@
             "apiVersion": "2024-07-01",
             "location": "northeurope",
             "tags": {
-                "Enviroment":"Test"},
+                "Environment":"Test"},
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
