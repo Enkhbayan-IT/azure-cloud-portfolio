@@ -1,1 +1,122 @@
+# Azure Bicep Infrastructure Labs
 
+This folder contains Azure Bicep templates for deploying and managing Azure infrastructure resources using Infrastructure as Code (IaC).
+
+The purpose of this section is to demonstrate practical Azure deployment skills using Bicep as part of a cloud engineering portfolio.
+
+---
+
+# Resources Covered
+
+- Resource Group
+- Storage Account
+- Virtual Network (VNet)
+- Subnet
+- Public IP Address
+- Network Interface (NIC)
+- Network Security Group (NSG)
+- NSG association to subnets
+- Linux Virtual Machine (VM)
+- Boot Diagnostics
+- Custom Script Extension
+- App Service Plan
+- Linux Web App
+
+---
+
+# File Structure
+
+| File | Purpose |
+|---|---|
+| `01-rg.bicep` | Creates a Resource Group |
+| `02-storage.bicep` | Creates a Storage Account |
+| `03-storage-loop.bicep` | Demonstrates loop deployment |
+| `04-vnet.bicep` | Creates a VNet and subnets |
+| `05-pip.bicep` | Creates a Public IP |
+| `06-nic.bicep` | Creates a Network Interface |
+| `07-nsg.bicep` | Creates an NSG and inbound rules |
+| `08-attach-nsg-to-subnet.bicep` | Attaches NSGs to existing subnets |
+| `09-vm.bicep` | Deploys a Linux VM |
+| `10-parameters.bicep` | Demonstrates parameterized deployments |
+| `11-outputs.bicep` | Demonstrates Bicep outputs |
+| `12-app-service.bicep` | Deploys App Service Plan and Linux Web App |
+| `13-custom-extension.bicep` | Uses Custom Script Extension to configure a VM |
+
+---
+
+# Deployment Example
+
+## Deploy a template
+
+```powershell
+az deployment group create `
+  --resource-group rg-az-neu-dev `
+  --template-file .\infra-bicep\09-vm.bicep
+```
+
+## Deploy with parameters
+
+```powershell
+az deployment group create `
+  --resource-group rg-az-neu-dev `
+  --template-file .\infra-bicep\10-parameters.bicep `
+  --parameters vmName=vm-neu-dev-web-01
+```
+
+---
+
+# Security Note
+
+Some lab templates currently include VM administrator usernames or passwords directly inside the Bicep code for learning and testing purposes.
+
+Example:
+
+```bicep
+adminUsername: 'linuxadmin'
+adminPassword: 'Azure@123'
+```
+
+This approach is **not secure** and should not be used in production environments.
+
+In real-world cloud environments, credentials should be handled using:
+
+- Bicep parameters
+- `@secure()` parameters
+- Azure Key Vault
+- SSH keys instead of passwords
+- Secure parameter files excluded from GitHub
+
+Example of a more secure approach:
+
+```bicep
+@secure()
+param adminPassword string
+```
+
+Then pass the password during deployment instead of hardcoding it in the template.
+
+---
+
+# Skills Demonstrated
+
+This lab demonstrates practical Azure infrastructure deployment skills including:
+
+- Azure Bicep template authoring
+- Infrastructure as Code (IaC)
+- Azure CLI deployments
+- Existing resource references
+- Parent-child resource relationships
+- Virtual networking
+- NSG configuration
+- VM deployment
+- Boot diagnostics configuration
+- VM Custom Script Extensions
+- Linux App Service deployments
+- Parameterized templates
+- Outputs and resource references
+
+---
+
+# Notes
+
+These templates are part of an Azure cloud engineering learning portfolio focused on hands-on deployment and infrastructure automation using Azure Bicep and Azure CLI.
