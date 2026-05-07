@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "northeurope"},
+      "storageAccountName":{"value":"stneudev100"},
+    "vnet": {
+      "value": {
+        "name": "vnet-neu-dev-web-01",
+        "addressPrefixes": [
+          "10.0.0.0/16"
+        ],
+        "subnets": [
+          {
+            "name": "snet-neu-dev-web-01",
+            "addressPrefix": "10.0.0.0/24"
+          },
+          {
+            "name": "snet-neu-dev-db-01",
+            "addressPrefix": "10.0.1.0/24"
+          }
+        ]
+      }
+    },
+    "nsg": {
+      "value": {
+        "name": "nsg-neu-dev-web-01",
+        "rules": [
+          {
+            "name": "in-allow-rdp-admin",
+            "properties": {
+              "description":"Allow RDP for admin access",
+              "protocol":"Tcp",
+              "direction":"inbound",
+              "access":"Allow",
+              "priority":400 ,
+              "sourcePortRange":"*" ,
+              "destinationPortRange":"3389",
+              "sourceAddressPrefix":"*",
+              "destinationAddressPrefix":"*"
+            }
+          },
+          {
+            "name":"in-allow-http-from-internet-to-10.0.0.4",
+            "properties": {
+              "description":"Allow http from Internet service tag to 10.0.0.4",
+              "protocol":"Tcp" ,
+              "direction":"inbound" ,
+              "access":"Allow" ,
+              "priority": 410 ,
+              "sourcePortRange":"*" ,
+              "destinationPortRange": 80 ,
+              "sourceAddressPrefix": "Internet" ,
+              "destinationAddressPrefix": "10.0.0.4"
+             }
+          }
+        ]
+      }
+    }
+  }
+}
