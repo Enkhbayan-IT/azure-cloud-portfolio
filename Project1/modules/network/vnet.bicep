@@ -29,3 +29,10 @@ resource vnet 'Microsoft.Network/virtualNetworks@2025-05-01' = {
       
   }
 }
+
+output subnetIds array = [
+  for s in subnets :{
+    name: s.name
+    id:resourceId('Microsoft.Network/VirtualNetworks/subnets',name, s.name)
+  }
+]
