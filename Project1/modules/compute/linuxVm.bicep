@@ -1,15 +1,9 @@
-@description('Uri to the script file(e.g SAS URL from storage or a raw)')
-param scriptUri string
-@description('Command to execute on the VM after the file is downloaded')
-param scriptCommand string ='powershell -ExecutionPolicy Bypass -File .\\setup.iis.ps1'
-@description('Backend Pool ID')
-param lbBackendPoolId string
-@description('Azure region')
+
 param location string
 @description('Vm size e.g Standard_D2s_v3')
 param vmSize string
 @description('Admin username')
-param adminUserName string ='azureadmin'
+param adminUserName string ='linuxadmin'
 @description('Admin password(or use Key Vault reference in the parameter file)')
 @secure()
 param adminPassword string
@@ -32,11 +26,6 @@ resource nics 'Microsoft.Network/networkInterfaces@2025-05-01' = [for (nicName,i
       name:'ipcomfig-01'
       properties:{privateIPAllocationMethod:'Dynamic'
       subnet:{id:subnetId}
-      loadBalancerBackendAddressPools:[
-        { 
-          id:lbBackendPoolId 
-        }
-      ]
     }
     }]
   }
@@ -53,12 +42,15 @@ resource vms 'Microsoft.Compute/virtualMachines@2025-11-01' = [for (vmName,i) in
       computerName:vmName
       adminUsername:adminUserName
       adminPassword:adminPassword
+      linuxConfiguration:{ 
+        disablePasswordAuthentication: false
+      }
     }
     storageProfile:{ 
       imageReference: { 
-        publisher:'MicrosoftWindowsServer'
-        offer:'WindowsServer'
-        sku:'2025-datacenter'
+        publisher:'Canonical'
+        offer:'ubuntu-24_02-lts'
+        sku:'server'
         version:'latest'
       }
       osDisk:{ 
@@ -77,23 +69,3 @@ resource vms 'Microsoft.Compute/virtualMachines@2025-11-01' = [for (vmName,i) in
   }
 }]
 
-resource vmCse 'Microsoft.Compute/virtualMachines/extensions@2025-11-01' = [
-  for i in range (0,length(vmNames)):  {
-    name:'cse-init'
-    location:location
-    parent:vms[i]
-    properties:{ 
-      publisher:'Microsoft.Compute'
-      type:'CustomScriptExtension'
-      typeHandlerVersion:'1.10'
-      settings: {
-        fileUris:[
-          scriptUri
-        ]
-      }
-      protectedSettings:{
-        commandToExecute:scriptCommand
-      }
-    }
-  }
-]

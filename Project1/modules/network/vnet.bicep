@@ -36,3 +36,4 @@ output subnetIds array = [
     id:resourceId('Microsoft.Network/VirtualNetworks/subnets',name, s.name)
   }
 ]
+output vnetId string = vnet.id

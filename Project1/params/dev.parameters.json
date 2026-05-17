@@ -1,7 +1,20 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "$schema":"https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "localVnetName": {"value":"vnet-dev-neu"},
+    "remoteVnetName": {"value":"vnet-test-neu"},
+    "linuxConfig":{
+      "value": {
+        "baseName":"test-app",
+        "vmSize":"Standard_D2s_v3",
+        "count":1,
+        "adminUserName": "linuxadmin"
+      }
+    },
+      "lbName": {
+  "value": "ilb-dev-neu-01"
+},
     "bastion":{
       "value":{
         "pipName":"pip-bas-dev-neu-01",
@@ -14,6 +27,14 @@
           "id":"/subscriptions/c450280e-56ef-46cc-a22c-0af683a01468/resourceGroups/rg-app/providers/Microsoft.KeyVault/vaults/enkkhbayanAdmin"
         },
         "secretName":"win-web-admin-password"
+      }
+    },
+     "LinuxWebAdminPassword":{
+      "reference":{
+        "keyvault": {
+          "id":"/subscriptions/c450280e-56ef-46cc-a22c-0af683a01468/resourceGroups/rg-app/providers/Microsoft.KeyVault/vaults/enkkhbayanAdmin"
+        },
+        "secretName":"linux-web-admin-password"
       }
     },
     "winWebConfig":{
@@ -38,6 +59,18 @@
           {"name": "snet-neu-dev-web-01","addressPrefix": "10.0.0.0/24"},
           {"name": "snet-neu-dev-db-01","addressPrefix": "10.0.1.0/24"},
           {"name":"AzureBastionSubnet","addressPrefix": "10.0.2.0/24"}
+        ]
+      }
+    },
+    "testvnet":{
+      "value":{
+        "name":"vnet-test-neu",
+        "addressPrefixes":"10.1.0.0/16",
+        "subnets":[
+          {
+            "name": "snet-test-neu-app",
+            "addressPrefix":"10.1.0.0/24"
+          }
         ]
       }
     },
