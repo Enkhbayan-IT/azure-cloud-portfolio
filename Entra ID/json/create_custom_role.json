@@ -1,0 +1,23 @@
+{
+    "properties": {
+        "roleName": "VM Start-Stop Operator",
+        "description": "",
+        "assignableScopes": [
+            "/subscriptions/09f78baa-54c0-46da-b901-d75a7ab6bcfa/resourceGroups/rg-neu-dev-01"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/virtualMachines/read",
+                    "Microsoft.Compute/virtualMachines/powerOff/action",
+                    "Microsoft.Compute/virtualMachines/start/action",
+                    "Microsoft.Compute/virtualMachines/restart/action",
+                    "Microsoft.Compute/virtualMachines/deallocate/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
