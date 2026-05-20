@@ -49,7 +49,7 @@ resource vms 'Microsoft.Compute/virtualMachines@2025-11-01' = [for (vmName,i) in
     storageProfile:{ 
       imageReference: { 
         publisher:'Canonical'
-        offer:'ubuntu-24_02-lts'
+        offer:'ubuntu-24_04-lts'
         sku:'server'
         version:'latest'
       }

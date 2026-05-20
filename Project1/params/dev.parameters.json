@@ -2,9 +2,7 @@
   "$schema":"https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "localVnetName": {"value":"vnet-dev-neu"},
-    "remoteVnetName": {"value":"vnet-test-neu"},
-    "linuxConfig":{
+    "linuxWebConfig":{
       "value": {
         "baseName":"test-app",
         "vmSize":"Standard_D2s_v3",
@@ -29,7 +27,7 @@
         "secretName":"win-web-admin-password"
       }
     },
-     "LinuxWebAdminPassword":{
+     "linuxWebAdminPassword":{
       "reference":{
         "keyvault": {
           "id":"/subscriptions/c450280e-56ef-46cc-a22c-0af683a01468/resourceGroups/rg-app/providers/Microsoft.KeyVault/vaults/enkkhbayanAdmin"
@@ -37,15 +35,15 @@
         "secretName":"linux-web-admin-password"
       }
     },
-    "winWebConfig":{
-      "value":{ 
-        "scriptUri":"https://stneudev100.blob.core.windows.net/scripts/setup-iis.ps1?sp=r&st=2026-05-16T13:42:15Z&se=2026-05-16T21:57:15Z&spr=https&sv=2025-11-05&sr=b&sig=I%2BNyhklStKtUdYfCyxwmyMpK%2FaCMlTPAyBSCO7n7y1M%3D",
-        "vmSize":"Standard_D2s_v3",
-        "adminUserName":"azureadmin",
-        "baseName":"dev-web",
-        "count":2 
-      }
-    },
+"winWebConfig": {
+  "value": {
+    "scriptUri": "https://stneudev100.blob.core.windows.net/script/setup-iis.ps1?sp=r&st=2026-05-20T15:59:04Z&se=2026-05-21T00:14:04Z&spr=https&sv=2026-02-06&sr=b&sig=jGAj%2BiZJrcy%2F%2FESTMdGUAnpPgXAlivlm6csKB%2B0t6MY%3D",
+    "vmSize": "Standard_D2s_v3",
+    "adminUserName": "azureadmin",
+    "baseName": "dev-web",
+    "count": 2
+  }
+},
     "location": {
       "value": "northeurope"},
       "storageAccountName":{"value":"stneudev100"},
@@ -65,7 +63,7 @@
     "testvnet":{
       "value":{
         "name":"vnet-test-neu",
-        "addressPrefixes":"10.1.0.0/16",
+        "addressPrefixes":["10.1.0.0/16"],
         "subnets":[
           {
             "name": "snet-test-neu-app",

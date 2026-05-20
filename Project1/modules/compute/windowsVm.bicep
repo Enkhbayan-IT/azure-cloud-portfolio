@@ -29,7 +29,7 @@ resource nics 'Microsoft.Network/networkInterfaces@2025-05-01' = [for (nicName,i
   location:location
   properties:{ 
     ipConfigurations:[{ 
-      name:'ipcomfig-01'
+      name:'ipconfig-01'
       properties:{privateIPAllocationMethod:'Dynamic'
       subnet:{id:subnetId}
       loadBalancerBackendAddressPools:[
