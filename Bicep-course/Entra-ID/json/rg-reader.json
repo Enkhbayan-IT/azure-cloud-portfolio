@@ -1,0 +1,20 @@
+{
+    "id": "/subscriptions/09f78baa-54c0-46da-b901-d75a7ab6bcfa/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "properties": {
+        "roleName": "Reader",
+        "description": "View all resources, but does not allow you to make any changes.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "*/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}

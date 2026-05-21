@@ -1,0 +1,22 @@
+# PowerShell
+*.ps1xml
+*.pssc
+*.psrc
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Azure
+*.publishsettings
+*.azurePubxml
+
+# Temp
+*.tmp
+*.temp
